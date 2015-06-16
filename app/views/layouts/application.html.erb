@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Snippets</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <!-- Bootstrap's Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Code Snippets</h1>
+    <%= link_to "Home", root_path %>
+    |
+    <%= link_to "All Snippets", tables_path %>
+    |
+
+
+
+    <%= yield %>
+  </div>
+</body>
+</html>
