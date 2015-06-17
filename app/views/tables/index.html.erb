@@ -1,6 +1,6 @@
 <div class="container">
 
-<h2>All Snippets (<% Snippet.count %>)</h2>
+<h2>All Snippets (<%= @total_snippets %>)</h2>
 
 <%= form_tag tables_path, method: :get do %>
   <%= label_tag :q, "Search" %>

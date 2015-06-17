@@ -1,13 +1,10 @@
 class TablesController < ApplicationController
 
-
-
   def index
     @snippets = Snippet.all
-    @snippets = Snippet.search(params[:search])
-    @snippets = Snippet.page(params[:page]).per(10)
+    @snippets = @snippets.search(params[:q])
+    @total_snippets = @snippets.length
+    @snippets = @snippets.page(params[:page]).per(10)
   end
-
-
 
 end
