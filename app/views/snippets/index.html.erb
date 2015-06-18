@@ -1,8 +1,22 @@
-
-<div class="container">
-<h2>Add a new Snippet</h2>
-
-
-<%= render partial: "snippets/form" %>
-
-</div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Kind</th>
+        <th>Title</th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @snippets.each do |snippet| %>
+        <tr>
+          <td><%= snippet.kind %></td>
+          <td><%= snippet.title %></td>
+          <td><%= link_to "View", snippet_path(snippet) %></td>
+          <td><%= button_to "Edit", edit_snippet_path(snippet), method: :get %></td>
+          <td><%= button_to "Delete", snippet_path(snippet), method: :delete,
+                    data: {confirm: "Are you sure you want to delete this snippet?"} %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

@@ -8,9 +8,9 @@
 
 
 100.times do
-kind = ["Ruby", "HTML", "CSS", "JavaScript"].sample
-title = [Faker::Hacker.ingverb, Faker::Hacker.noun].join(' ')
-work  = Faker::Lorem.paragraph
-Snippet.create(kind: kind, title: title,
-                work: work)
+  kind = ["ruby", "html", "css", "javascript"].sample
+  title = [Faker::Hacker.ingverb, Faker::Hacker.noun].join(' ')
+  work  = Faker::Lorem.paragraph
+
+  Snippet.create(kind: kind, title: title, work: work)
 end

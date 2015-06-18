@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'snippets#index'
+  root 'snippets#welcome'
 
   resources :snippets
 

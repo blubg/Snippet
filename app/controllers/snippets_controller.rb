@@ -1,7 +1,15 @@
 class SnippetsController < ApplicationController
 
+  def welcome
+    @num_ruby_snippets = Snippet.where(kind: "ruby").count
+    @num_html_snippets = Snippet.where(kind: "html").count
+    @num_css_snippets = Snippet.where(kind: "css").count
+    @num_javascript_snippets = Snippet.where(kind: "javascript").count
+  end
+
+
   def index
-    @snippet=Snippet.new
+    @snippets = Snippet.where(kind: params[:kind])
   end
 
   def show
