@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615225841) do
+ActiveRecord::Schema.define(version: 20150618233009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "text"
+    t.integer  "snippet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["snippet_id"], name: "index_comments_on_snippet_id", using: :btree
 
   create_table "snippets", force: :cascade do |t|
     t.string   "kind"
@@ -24,4 +33,5 @@ ActiveRecord::Schema.define(version: 20150615225841) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "comments", "snippets"
 end

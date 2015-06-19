@@ -7,3 +7,18 @@
 <p>Work: <%= @snippet.work %></p>
 
 </div>
+
+<% @snippet.comments.each do |comment| %>
+<div>
+  <%= comment.text %>
+</div>
+
+<% end %>
+
+<%= form_for [@snippet, @comment] do |f| %>
+  <div>
+    <%= f.label :text %>
+    <%= f.text_area :text %>
+  </div>
+  <%= f.submit %>
+<% end %>

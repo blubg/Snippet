@@ -2,9 +2,13 @@ Rails.application.routes.draw do
 
   root 'snippets#welcome'
 
-  resources :snippets
+  resources :snippets do
+    resources :comments
+  end
 
   resources :tables, only: [:index]
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
